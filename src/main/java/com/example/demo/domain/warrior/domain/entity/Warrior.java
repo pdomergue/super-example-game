@@ -1,7 +1,7 @@
-package com.example.demo.domain.warrior;
+package com.example.demo.domain.warrior.domain.entity;
 
-import com.example.demo.domain.item.Item;
-import com.example.demo.domain.user.User;
+import com.example.demo.domain.item.domain.entity.Item;
+import com.example.demo.domain.user.domain.entity.User;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,10 +35,17 @@ public class Warrior {
     public Warrior() {
     }
 
-    public Warrior(Long id, List<SkillLevel> skills, List<Item> items) {
-        this.id = id;
+    public Warrior(final List<SkillLevel> skills,
+                   final List<Item> items,
+                   final User user) {
         this.skills = skills;
         this.items = items;
+        this.user = user;
+    }
+
+    public Warrior(final User user){
+        this.user = user;
+        this.skills = SkillLevel.createSkillLevels(this);
     }
 
     public Long getId() {
@@ -51,5 +58,9 @@ public class Warrior {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

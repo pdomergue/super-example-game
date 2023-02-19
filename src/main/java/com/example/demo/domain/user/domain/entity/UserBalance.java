@@ -1,4 +1,4 @@
-package com.example.demo.domain.user;
+package com.example.demo.domain.user.domain.entity;
 
 import com.example.demo.domain.money.Money;
 import javax.persistence.*;
