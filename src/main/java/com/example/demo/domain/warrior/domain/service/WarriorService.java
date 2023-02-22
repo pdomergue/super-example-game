@@ -13,9 +13,7 @@ import com.example.demo.domain.warrior.domain.entity.Warrior;
 import com.example.demo.domain.warrior.domain.entity.skill.Skill;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class WarriorService {

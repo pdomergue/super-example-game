@@ -5,6 +5,7 @@ import com.example.demo.domain.warrior.domain.entity.skill.Skill;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -35,9 +36,10 @@ public class Item {
     public Item() {
     }
 
-    public Item(Long id, ItemType type, List<ItemCost> itemCosts, Set<Skill> skillModifiers) {
+    public Item(Long id, ItemType type, String name, List<ItemCost> itemCosts, Set<Skill> skillModifiers) {
         this.id = id;
         this.type = type;
+        this.name = name;
         this.itemCosts = itemCosts;
         this.skillModifiers = skillModifiers;
     }
@@ -60,5 +62,18 @@ public class Item {
 
     public Set<Skill> getSkillModifiers() {
         return skillModifiers;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Item item = (Item) o;
+        return Objects.equals(id, item.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

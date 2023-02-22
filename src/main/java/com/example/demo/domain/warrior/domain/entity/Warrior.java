@@ -35,7 +35,8 @@ public class Warrior {
     public Warrior() {
     }
 
-    public Warrior(final List<SkillLevel> skills,
+    public Warrior(final Long id,
+                   final List<SkillLevel> skills,
                    final List<Item> items,
                    final User user) {
         this.skills = skills;
