@@ -17,7 +17,7 @@ public class GameExceptionHandler {
                 HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler({GameNotFoundException.class})
+    @ExceptionHandler({GameBadRequestException.class})
     public ResponseEntity handleGameBadRequestException(GameBadRequestException ex) {
         return new ResponseEntity<>(
                 ex.getMessage(),

@@ -72,4 +72,13 @@ public class SkillLevel {
 
         return skillLevels;
     }
+
+    public void levelUp(){
+        if(grade < 10){
+            grade = grade + 1;
+        }else if(grade.equals(10L) && this.level.hasNext()){
+            level = level.next();
+            grade = 1L;
+        }
+    }
 }

@@ -3,9 +3,7 @@ package com.example.demo.domain.warrior.application;
 import com.example.demo.domain.warrior.domain.dto.WarriorDto;
 import com.example.demo.domain.warrior.domain.service.WarriorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 
@@ -21,9 +19,9 @@ public class WarriorController {
         return warriorService.createWarrior();
     }
 
-    @PostMapping("/{warriorId}/equip-item/{itemId}")
-    public WarriorDto equipItem(@PathParam(value = "warriorId") final Long warriorId,
-                                @PathParam(value = "itemId") final Long itemId){
-        return null;
+    @PostMapping("/{warriorId}/item/{itemId}")
+    public WarriorDto equipItem(@PathVariable(value = "warriorId") final Long warriorId,
+                                @PathVariable(value = "itemId") final Long itemId){
+        return warriorService.equipItem(warriorId, itemId);
     }
 }
